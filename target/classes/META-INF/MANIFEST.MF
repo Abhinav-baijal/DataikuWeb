@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: web-front
+Implementation-Version: 1.0
+Built-By: abhinav
+Implementation-Vendor-Id: com.dataiku
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Visualization-api/web-front
+Created-By: Maven Integration for Eclipse
+

@@ -1,20 +1,70 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+ <h1> {{title}} </h1>
+  <h4>
+  	Variable
+  	
+   	  <select id="Id" [(ngModel)]="columnNameValue" 
+   	  	(change)="selectName();" placeholder="Select Column Name">  
+             <option (click)="columnNameValue=''; selectName();" selected="" value=""></option>  
+             <option *ngFor="let value of dropDownValues" [value]="value">  
+                 {{value || uppercase }}  
+             </option>  
+      </select>
+      <br><br>
+      
+      <span>
+      	<ng-template [ngIf] = "totalCount != null && columnNameValue != '' ">
+      	<table class="clipPadding">
+      		<tbody>
+      			<tr>
+      				<td>Total Count: {{totalCount}} &nbsp;</td>
+      				
+      				<td *ngIf = "undisplayedRowsCount != 0">Rows Clipped: {{undisplayedRowsCount}} &nbsp;</td>
+      				<td *ngIf = "undisplayedRowsCount != 0" >
+		      			Undisplayed labels
+			      		<select placeholder="Undisplayed Labels" >
+							<option selected="" value=""></option>
+							<option disabled *ngFor="let value of undisplayedValues">
+								{{value || uppercase }}</option>
+						</select>
+      				</td>
+      			</tr>
+      		</tbody>
+      	</table>
+      	
+      	
+      	</ng-template>
+      		
+
+		</span>
+      <br>
+      	<ng-template [ngIf]="disp != null && columnNameValue != ''" >
+      <table class="dataTable list dtable">
+      	<tbody>
+      		<tr style="background-color: #b7d7e8;">
+      			<th><strong>Label </strong> </th>
+      			<th><strong>Average </strong></th>
+      			<th><strong>Count </strong></th>
+      			
+      			
+      		</tr>
+      	<ng-template ngFor let-ds [ngForOf]="disp"> 
+      		
+      		<tr>
+      			<th *ngIf="ds.label != null">{{ds.label}}</th>
+      			<th *ngIf="ds.label === null">NULL</th>
+      			<th>{{ds.average }}</th>  
+      			<th>{{ds.count}}</th>
+      		    
+      			
+      		</tr>
+      		</ng-template>
+      		
+      	</tbody>
+      </table>   
+      </ng-template>
+  </h4>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 

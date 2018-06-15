@@ -1,0 +1,21 @@
+.dataTable {
+	border-collapse: collapse;
+	border: 1px solid black;
+    width: 100%;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    text-align: center;
+}
+
+.dataTable th {
+	padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dataTable tr:hover {
+	background-color: #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
